@@ -1,8 +1,8 @@
 DEBUG = true;
 
 if (DEBUG){ 
-  LEARNING_RATE = 0.2;
-  args = [10,20,30,40,60,70,2,3,4,2,3,4];
+  LEARNING_RATE = 0.16;
+  args = [10,20,30,40,60,70,2,3,4,2,3,4,1,2,4,2,3,2,5,6,7,2,1,2,3,2,41,2,4,2,12,41,12,4,124,124,124,44,4,49,382,212];
   console.log("Args : ");
   console.log(args);
 
@@ -36,7 +36,7 @@ if (DEBUG){
 
   theta = init_theta(X);
 
-  result = train(X,y,theta,LEARNING_RATE,100);
+  result = train(X,y,theta,LEARNING_RATE,1000);
   console.log(result.theta);
   console.log(result.cost_history);
 }
@@ -52,12 +52,13 @@ function drawChart(){
      animationDuration: 1000,
 
       axisX:{
-        interval: 10,
-        title: "Epochs"
+        title: "Epochs",
+        titleFontSize: 16
       },
 
       axisY:{
-       title: "Cost function"
+       title: "Error",
+       titleFontSize: 16
       },
 
      title:{

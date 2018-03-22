@@ -8,6 +8,7 @@
   	<!-- Function plot  -->
 	<script src="linear-regression.js" type="text/javascript" charset="utf-8" async defer></script>
 	<script src="chart.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="main.js" type="text/javascript" charset="utf-8" async defer></script>
 	<link rel="stylesheet" href="main.css">
 
 	<title>Linear Regression </title>
@@ -20,9 +21,20 @@
 		<div id="costGraph" class="graph">
 		</div>
 
-		<div class="input" style="margin-top: 50px">
+		<p>Input arguments to be predicted :</p>
+		
+		<div id="arguments">
+			<input id="argument_1" type="number" name="" value="0" placeholder="" style="max-width: 50px;">
+			<input id="argument_2" type="number" name="" value="0" placeholder="" style="max-width: 50px;">
+		</div>
+
+		<button onclick="addArgument()"> + </button> <button onclick="removeArgument()"> - </button>
+
+		<div class="input" style="margin-top: 20px">
 			<button onclick="drawChart()">Train</button>
 		</div>
+
+
 	</div>
 </body>
 

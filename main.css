@@ -1,7 +1,7 @@
 #costGraph {
-	min-height: 500px;
 	margin: 0 auto;
-	width: 50%;
+	width: 90%;
+	height : 70%;
 	background: #ffdead;
 }
 
@@ -9,8 +9,8 @@
 	margin: 0 auto;
 	margin-top: 80px;
 	width: 80%;
+	text-align: center;
 }
 
 .input {
-	text-align: center;
 }
