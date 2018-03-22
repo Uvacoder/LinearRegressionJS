@@ -1,3 +1,4 @@
+// Generate Data
 var init_X = function(n,m){
 	let X = [];	
 
@@ -31,6 +32,8 @@ var init_y = function(X, args, bias){
 	return y;
 }
 
+
+// Initialize parameters (theta)
 var init_theta = function(X){
 	let theta = [];
 
@@ -42,6 +45,7 @@ var init_theta = function(X){
 }
 
 
+// Hypothesis function
 var hypothesis = function(theta,X){
 	let h = [];
 
@@ -68,6 +72,8 @@ var cost_function = function(h,y){
 	 return cost;
 }
 
+
+// Gradient
 var compute_gradient = function(h,y,X){
 	error = math.subtract(h,y);
 	gradient = math.multiply(math.transpose(X),error);
@@ -81,65 +87,29 @@ var update_theta = function(theta, lr, gradient){
 	return updated_theta
 }
 
+// Fit data 
 var train = function(X,y,theta,lr,EPOCH){
 
-
 	h = hypothesis(theta,X);
+
+	J_history = [];
 	J = cost_function(h,y);
 
 	
 	for (var i = 0; i < EPOCH ; i++) {
-		if (i%10 === 0) console.log(J);
+		J_history.push({x:i, y:J});
+
 		gradient = compute_gradient(h,y,X);
 		theta = update_theta(theta,lr,gradient);
 		h = hypothesis(theta,X);
 		J = cost_function(h,y);
 	}
 
-	console.log(theta);
+	return {
+		theta: theta,
+		cost_history: J_history
+	}
+
 }
-
-LEARNING_RATE = 0.2;
-DEBUG = true;
-
-if (DEBUG){	
-	args = [4,5,2,4,20,1,9];
-	console.log("Args : ");
-	console.log(args);
-
-	var X = init_X(args.length,150);
-	console.log("X:");
-	console.log(X);
-
-	bias = 10;
-	console.log("bias : ");
-	console.log(bias);
-		
-	var y = init_y(X,args,bias);	
-	console.log("y: ");
-	console.log(y);
-
-	var theta = init_theta(X);
-	console.log("Theta : ")
-	console.log(theta);
-
-	h = hypothesis(theta,X);
-	console.log("h : ")
-	console.log(h);
-
-	cost = cost_function(h,y);
-	console.log("Error :");
-	console.log(cost);
-
-	gradient = compute_gradient(h,y,X);
-	console.log("Grad :");
-	console.log(gradient);
-
-	theta = init_theta(X);
-
-	train(X,y,theta,LEARNING_RATE,1500);
-}
-
-
 
 

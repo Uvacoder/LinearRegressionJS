@@ -4,21 +4,26 @@
 
 	<meta charset="utf-8">
   	<script src="packages/math.js"></script>	
+  	<script src="packages/canvasjs.min.js"></script>	
   	<!-- Function plot  -->
-	<script src="main.js" type="text/javascript" charset="utf-8" async defer></script>
-	<!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
+	<script src="linear-regression.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="chart.js" type="text/javascript" charset="utf-8" async defer></script>
+	<link rel="stylesheet" href="main.css">
 
+	<title>Linear Regression </title>
 </head>
 
 <body>
 
-	<span id = "#range"></span>
-	<input type="range" min="10" max="1000"  value="20" placeholder="">
+	<div class="container">
 	
-	<div class="graph">
-				
-	</div>
+		<div id="costGraph" class="graph">
+		</div>
 
+		<div class="input" style="margin-top: 50px">
+			<button onclick="drawChart()">Train</button>
+		</div>
+	</div>
 </body>
 
 
